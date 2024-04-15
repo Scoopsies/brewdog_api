@@ -12,15 +12,15 @@ app.use(cors({
 }))
 
 app.get('/', (req, res) => {
+    console.log('someone accessed /')
     res.send("Hello from express + ts (not ts yet)")
 })
 
-app.get('/punkapi', (req, res) => {
-    const query = req.query
-    const page = query.page
-    console.log(page)
+app.get('/beers', (req, res) => {
+    console.log('someone accessed /beers')
     res.send(punkapi)
 })
+
 
 app.listen(port, () => {
     console.log('now listening on', port)
