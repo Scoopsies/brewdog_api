@@ -22,12 +22,7 @@ app.get('/punkapi', (req, res) => {
     res.send(punkapi)
 })
 
-app.get('/hi', (req, res) => {
-    res.send('The fuck you want?')
-})
-
 app.listen(port, () => {
     console.log('now listening on', port)
-    console.log('This is the change.')
 })
 
