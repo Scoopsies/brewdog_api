@@ -6,10 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const punkapi = require('punkapi-db').sort((a, b) => a.id - b.id);
-const port = 8080;
+const port = process.env.PORT || 8080;
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: 'http://localhost:5173 || https://diy-dog.onrender.com/',
+    origin: ['https://diy-dog.onrender.com/', 'http://localhost:5173/'],
     methods: ["GET"]
 }));
 app.get('/', (req, res) => {
