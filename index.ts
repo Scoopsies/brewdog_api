@@ -5,8 +5,9 @@ const punkapi = require('punkapi-db').sort((a : BeerType, b : BeerType) => a.id 
 const port = 8080;
 
 const app = express();
+
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'http://localhost:5173 || https://diy-dog.onrender.com/',
     methods: ["GET"]
 }))
 
