@@ -7,7 +7,7 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 app.use(cors({
-    origin: ['https://diy-dog.onrender.com/', 'http://localhost:5173/'],
+    origin: ['https://diy-dog.onrender.com', 'http://localhost:5173'],
     methods: ["GET"]
 }))
 
