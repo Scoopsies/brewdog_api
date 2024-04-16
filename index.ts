@@ -1,7 +1,7 @@
 import express from 'express'; 
 import cors from 'cors';
 import BeerType from './beertype.types';
-const punkapi = require('punkapi-db').sort((a : BeerType, b : BeerType) => a.id - b.id)
+const punkapi : BeerType[] = require('punkapi-db').sort((a : BeerType, b : BeerType) => a.id - b.id)
 const port = process.env.PORT || 8080;
 
 const app = express();
@@ -18,7 +18,14 @@ app.get('/', (req, res) => {
 
 app.get('/beers', (req, res) => {
     console.log('someone accessed /beers')
-    res.send(punkapi)
+    res.json(punkapi)
+})
+
+app.get('/beer/:id', (req, res) => {
+    console.log('someone accessed /beer/:id')
+    const beerId = parseInt(req.params.id)
+    const singleBeer = punkapi.find(beer => beer.id === beerId)
+    res.json(singleBeer)
 })
 
 

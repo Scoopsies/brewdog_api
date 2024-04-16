@@ -18,7 +18,13 @@ app.get('/', (req, res) => {
 });
 app.get('/beers', (req, res) => {
     console.log('someone accessed /beers');
-    res.send(punkapi);
+    res.json(punkapi);
+});
+app.get('/beer/:id', (req, res) => {
+    console.log('someone accessed /beer/:id');
+    const beerId = parseInt(req.params.id);
+    const singleBeer = punkapi.find(beer => beer.id === beerId);
+    res.json(singleBeer);
 });
 app.listen(port, () => {
     console.log('now listening on', port);
