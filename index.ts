@@ -4,7 +4,8 @@ import BeerType from './types/Beertype.types';
 import queryFilter from './queryFilter';
 const punkapi: BeerType[] = require('punkapi-db').sort((a : BeerType, b : BeerType) => a.id - b.id);
 const port = process.env.PORT || 8080;
-
+import beersRoute from './routes/Beers';
+import beerRoute from './routes/Beer';
 
 const app = express();
 
@@ -13,24 +14,8 @@ app.use(cors({
     methods: ["GET"]
 }))
 
-app.get('/', (req, res) => {
-    console.log('someone accessed /')
-    res.send("Hello from express + ts (not ts yet)")
-})
-
-app.get('/beers', (req, res) => {
-    console.log(req.query)
-    console.log('someone accessed /beers')
-    res.json(queryFilter(punkapi, req.query))
-})
-
-app.get('/beer/:id', (req, res) => {
-    console.log('someone accessed /beer/:id')
-    const beerId = parseInt(req.params.id)
-    const singleBeer = punkapi.find(beer => beer.id === beerId)
-    res.json(singleBeer)
-})
-
+app.use('/beers', beersRoute)
+app.use('/beer', beerRoute)
 
 app.listen(port, () => {
     console.log('now listening on', port)
