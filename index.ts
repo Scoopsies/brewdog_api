@@ -1,8 +1,5 @@
 import express from 'express'; 
 import cors from 'cors';
-import BeerType from './types/Beertype.types';
-import queryFilter from './queryFilter';
-const punkapi: BeerType[] = require('punkapi-db').sort((a : BeerType, b : BeerType) => a.id - b.id);
 const port = process.env.PORT || 8080;
 import beersRoute from './routes/Beers';
 import beerRoute from './routes/Beer';
