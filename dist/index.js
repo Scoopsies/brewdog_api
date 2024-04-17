@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const punkapi = require('punkapi-db').sort((a, b) => a.id - b.id);
-const punkapiLib = require('punkapi-lib');
 const port = process.env.PORT || 8080;
 const app = (0, express_1.default)();
 const queryFilter = (beerData, query) => {

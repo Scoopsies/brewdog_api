@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import BeerType from './beertype.types';
 const punkapi: BeerType[] = require('punkapi-db').sort((a : BeerType, b : BeerType) => a.id - b.id);
-const punkapiLib = require('punkapi-lib')
 const port = process.env.PORT || 8080;
 
 type Query = {
